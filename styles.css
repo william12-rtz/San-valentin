@@ -1,0 +1,326 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Fondo con corazones flotantes */
+.hearts-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+
+
+@keyframes floatHearts {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.container {
+    z-index: 1;
+    position: relative;
+}
+
+.oculto {
+    display: none !important;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(255, 105, 135, 0.4);
+    text-align: center;
+    max-width: 500px;
+    animation: aparecer 0.8s ease-out;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.emoji-grande {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    animation: pulsar 1.5s ease-in-out infinite;
+}
+
+@keyframes pulsar {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+h1 {
+    color: #e91e63;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.pregunta {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.botones {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: 80px;
+    align-items: center;
+}
+
+.btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.btn-si {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    color: white;
+    box-shadow: 0 8px 25px rgba(238, 90, 36, 0.4);
+}
+
+.btn-si:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 35px rgba(238, 90, 36, 0.5);
+}
+
+.btn-no {
+    background: linear-gradient(45deg, #a8a8a8, #888);
+    color: white;
+    position: relative;
+    transition: all 0.1s ease;
+}
+
+.btn-no:hover {
+    /* El JS se encargará de moverlo */
+}
+
+.mensaje-escape {
+    margin-top: 1.5rem;
+    color: #e91e63;
+    font-style: italic;
+    font-size: 1.1rem;
+    min-height: 1.5rem;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Pantalla de celebración */
+.card-celebracion {
+    background: linear-gradient(135deg, #fff 0%, #ffe4ec 100%);
+    animation: celebrar 0.8s ease-out;
+}
+
+@keyframes celebrar {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) rotate(-10deg);
+    }
+    50% {
+        transform: scale(1.05) rotate(2deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+.confeti-emoji {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    animation: confeti 1s ease-in-out infinite;
+}
+
+@keyframes confeti {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.corazon-latiendo {
+    font-size: 6rem;
+    animation: latido 0.8s ease-in-out infinite;
+}
+
+@keyframes latido {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.15);
+    }
+}
+
+h2 {
+    color: #d63384;
+    margin: 1rem 0;
+    font-size: 1.5rem;
+}
+
+.invitacion {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    padding: 2rem;
+    border-radius: 20px;
+    margin: 1.5rem 0;
+    box-shadow: 0 10px 30px rgba(252, 182, 159, 0.4);
+}
+
+.sobre {
+    font-size: 3rem;
+    animation: sobrebailar 2s ease-in-out infinite;
+}
+
+@keyframes sobrebailar {
+    0%, 100% {
+        transform: rotate(-5deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
+h3 {
+    color: #c0392b;
+    margin: 1rem 0;
+    font-size: 1.3rem;
+}
+
+.detalle-invitacion {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-top: 1rem;
+}
+
+.lugar {
+    font-size: 1.4rem;
+    color: #2980b9;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.descripcion {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.decoracion {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    color: #e67e22;
+}
+
+.promesa {
+    color: #8e44ad;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.final-corazones {
+    font-size: 2rem;
+    margin-top: 1rem;
+    animation: brillar 2s ease-in-out infinite;
+}
+
+@keyframes brillar {
+    0%, 100% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.3);
+    }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .card {
+        margin: 1rem;
+        padding: 2rem;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .pregunta {
+        font-size: 1.2rem;
+    }
+    
+    .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .emoji-grande {
+        font-size: 3rem;
+    }
+    
+    .corazon-latiendo {
+        font-size: 4rem;
+    }
+}
